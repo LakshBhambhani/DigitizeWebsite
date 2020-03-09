@@ -27,6 +27,8 @@ Shadow: #2369a8;
     <meta name="description" content="Digitize Hackathon : September 28-29">
     <meta name="keywords" content="Hackathon,Code,Coding,Programming">
     <meta name="author" content="Digitize">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -179,34 +181,83 @@ Shadow: #2369a8;
                         <tr>
                             <th style="width:50%">
                                 <!--SLIDESHOW HTML-->
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/O0RF9mUDwvk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <!-- <iframe width="560" height="315"
+                                    src="https://www.youtube.com/embed/O0RF9mUDwvk?autoplay=1" frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe> -->
+                                <style>
+                                     #ytplayer{ 
+                                        height:315px; width:560px; display: block;
+                                        opacity: 1;
+                                    }
+                                    </style>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                                    <script>
+                                      // Load the IFrame Player API code asynchronously.
+                                      var tag = document.createElement('script');
+                                      tag.src = "https://www.youtube.com/player_api";
+                                      var firstScriptTag = document.getElementsByTagName('script')[0];
+                                      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                                
+                                      // Replace the 'ytplayer' element with an <iframe> and
+                                      // YouTube player after the API code downloads.
+                                      var player;
+                                      function onYouTubePlayerAPIReady() {
+                                        player = new YT.Player('ytplayer', {
+                                          height: '390',
+                                          width: '640',
+                                          playerVars : {
+                                                autoplay : 0
+                                            },
+                                          videoId: 'O0RF9mUDwvk'
+                                        });
+                                      }
+                                
+                                      $(window).scroll(function() {
+                                        $("iframe").each( function() {
+                                            if( $(window).scrollTop()+200 > $(this).offset().top - 50 ) {
+                                                // $(this).css('opacity',1);
+                                                player.playVideo();
+                                             } 
+                                            //else {
+                                            //     $(this).css('opacity',0);
+                                            //     player.stopVideo();
+                                            // }
+                                        }); 
+                                    });
+                                
+                                    </script>
 
-                <!--END SLIDESHOW HTML-->
-                </th>
-                <th style="width:50%; padding-left:50px">
-                    <h2 class="section-heading text-white">About Digitize</h2>
-                    <hr class="light my-4">
-                    <p class="text-faded mb-4">
-                        <!--Digitize is a hackathon for high school students in the Bay Area,
+                                    <div id="ytplayer"></div>
+
+                                <!--END SLIDESHOW HTML-->
+                            </th>
+                            <th style="width:50%; padding-left:50px">
+                                <h2 class="section-heading text-white">About Digitize</h2>
+                                <hr class="light my-4">
+                                <p class="text-faded mb-4">
+                                    <!--Digitize is a hackathon for high school students in the Bay Area,
                                     taking place overnight from <b>September 28-29, 2019</b> from Saturday at 10am to Sunday at 1pm. Our
                                     goal is to educate students about computer science and programming by providing them with
                                     workshops and mentors, so by the end of the hackathon, each team will have a project to
                                     present in front of our judging panel.-->
-                        Digitize Hackathon is for high school students in the Bay Area,
-                        taking place overnight. Our
-                        goal is to educate students about computer science and programming by providing them with
-                        workshops and mentors, so by the end of the hackathon, each team will have a project to
-                        present in front of our judging panel. 
-                        <br> <br>
-                        <a href="faq.html" style="color: white;">Learn more about Digitize</a>
-                    </p>
-                </th>
-                </tr>
-                </table>
-                <!--END ABOUT DIGITIZE DESCRIPTION-->
+                                    Digitize Hackathon is for high school students in the Bay Area,
+                                    taking place overnight. Our
+                                    goal is to educate students about computer science and programming by providing them
+                                    with
+                                    workshops and mentors, so by the end of the hackathon, each team will have a project
+                                    to
+                                    present in front of our judging panel.
+                                    <br> <br>
+                                    <a href="faq.html" style="color: white;">Learn more about Digitize</a>
+                                </p>
+                            </th>
+                        </tr>
+                    </table>
+                    <!--END ABOUT DIGITIZE DESCRIPTION-->
 
+                </div>
             </div>
-        </div>
         </div>
     </section>
     <!--END ABOUT-->
@@ -222,6 +273,237 @@ Shadow: #2369a8;
                 </div>
             </div>
         </div>
+
+        <!-- <style>
+            body {
+                line-height: 1.3em;
+                min-width: 920px;
+            }
+
+            .history-tl-container {
+                font-family: "Roboto", sans-serif;
+                width: 50%;
+                margin: auto;
+                display: block;
+                position: relative;
+            }
+
+            .history-tl-container ul.tl {
+                margin: 20px 0;
+                padding: 0;
+                display: inline-block;
+
+            }
+
+            .history-tl-container ul.tl li {
+                list-style: none;
+                margin: auto;
+                margin-left: 0px;
+                min-height: 50px;
+                /*background: rgba(255,255,0,0.1);*/
+                border-left: 1px dashed #86D6FF;
+                padding: 0 0 50px 30px;
+                position: relative;
+            }
+
+            .history-tl-container ul.tl li:last-child {
+                border-left: 0;
+            }
+
+            .history-tl-container ul.tl li::before {
+                position: absolute;
+                left: -18px;
+                top: -5px;
+                content: " ";
+                border: 8px solid rgba(255, 255, 255, 0.74);
+                border-radius: 500%;
+                background: #258CC7;
+                height: 20px;
+                width: 20px;
+                transition: all 500ms ease-in-out;
+
+            }
+
+            .history-tl-container ul.tl li:hover::before {
+                border-color: #258CC7;
+                transition: all 500ms ease-in-out;
+            }
+
+            ul.tl li .item-title {}
+
+            ul.tl li .item-detail {
+                color: rgba(0, 0, 0, 0.5);
+                font-size: 12px;
+            }
+
+            ul.tl li .timestamp {
+                color: #8D8D8D;
+                position: absolute;
+                width: 100px;
+                left: -50%;
+                text-align: right;
+                font-size: 12px;
+            }
+        </style>
+
+        <link href='//fonts.googleapis.com/css?family=Roboto:200,400,600' rel='stylesheet' type='text/css'>
+        <div class="history-tl-container">
+            <div class="col-md-6" style="float:left">
+                <h3 class="section-heading" style="text-align: left">Saturday</h3>
+                <ul class="tl">
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 10:00-10:45 AM
+                        </div>
+                        <div class="item-title">Check In Begins</div>
+                        <div class="item-detail">Entrance</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 11:00 AM
+                        </div>
+                        <div class="item-title">Opening Ceremony</div>
+                        <div class="item-detail">Main Stage</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 12:00 PM
+                        </div>
+                        <div class="item-title">Lunch, Form Teams</div>
+                        <div class="item-detail">Food Area</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 1:00 PM
+                        </div>
+                        <div class="item-title">Hacking Begins</div>
+                        <div class="item-detail">Everywhere</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 1:30 PM
+                        </div>
+                        <div class="item-title">Workshop #1 : Intro to Java / Object Oriented Programming</div>
+                        <div class="item-detail">Presentation Area</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 2:00 PM
+                        </div>
+                        <div class="item-title">Workshop #2 : Caching/App Development</div>
+                        <div class="item-detail">Presentation Area</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 3:00 PM
+                        </div>
+                        <div class="item-title">Workshop #3 : Intro to HTML/CSS/JS</div>
+                        <div class="item-detail">Presentation Area</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 5:30 PM
+                        </div>
+                        <div class="item-title">Game: Cup Stacking</div>
+                        <div class="item-detail">Upstairs</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 6:00 PM
+                        </div>
+                        <div class="item-title">Workshop #4 : Backend Web Dev</div>
+                        <div class="item-detail">Presentation Area</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 7:00 PM
+                        </div>
+                        <div class="item-title">Dinner & Movie</div>
+                        <div class="item-detail">Food Area</div>
+                    </li>
+                    <li class="tl-item" ng-repeat="item in retailer_history">
+                        <div class="timestamp">
+                            October 2020<br> 12:00 PM
+                        </div>
+                        <div class="item-title">Midnight Snack</div>
+                        <div class="item-detail">Food Area</div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <link href='//fonts.googleapis.com/css?family=Roboto:200,400,600' rel='stylesheet' type='text/css'>
+        <div class="history-tl-container" style="float:right;">
+            <center>
+                <div class="col-md-6">
+                    <h3 class="section-heading" style="float: left;">Sunday</h3>
+                    <ul class="tl">
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                            <div class="timestamp">
+                                October 2020<br> 1:00 AM
+                            </div>
+                            <div class="item-title" style="text-align: left;">Super Smash Bros Brawl Wii Tournament
+                            </div>
+                            <div class="item-detail" style="text-align: left;">Upstairs</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                            <div class="timestamp">
+                                October 2020<br> 7:00 AM
+                            </div>
+                            <div class="item-title" style="text-align: left;">Breakfast</div>
+                            <div class="item-detail" style="text-align: left;">Food Area</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                            <div class="timestamp">
+                                October 2020<br> 8:30-9:00 AM
+                            </div>
+                            <div class="item-title" style="text-align: left;">Workshop #5 : Presentation Skills :
+                                Pitching a Project</div>
+                            <div class="item-detail" style="text-align: left;">Presentation Area</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                            <div class="timestamp">
+                                October 2020<br> 8:50 AM
+                            </div>
+                            <div class="item-title" style="text-align: left;">Submissions</div>
+                            <div class="item-detail" style="text-align: left;">Everywhere</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                            <div class="timestamp">
+                                October 2020<br> 9:30 PM
+                            </div>
+                            <div class="item-title" style="text-align: left;">Hacking Ends!</div>
+                            <div class="item-detail" style="text-align: left;">Presentation Area</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                            <div class="timestamp">
+                                October 2020<br> 9:30-12:00 PM
+                            </div>
+                            <div class="item-title" style="text-align: left;">Project Pitching</div>
+                            <div class="item-detail" style="text-align: left;">Presentation Area</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                            <div class="timestamp">
+                                October 2020<br> 12:00 PM
+                            </div>
+                            <div class="item-title" style="text-align: left;">Juding</div>
+                            <div class="item-detail" style="text-align: left;">Presentation Area</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                            <div class="timestamp">
+                                October 2020<br> 12:30-1:00 PM
+                            </div>
+                            <div class="item-title" style="text-align: left;">Closing Ceremony + Awards</div>
+                            <div class="item-detail" style="text-align: left;">Presentation Area</div>
+                        </li>
+                    </ul>
+
+                </div>
+            </center>
+
+        </div> -->
+
         <div class="container" style="overflow: auto">
             <div class="col-md-6" style="float:left">
                 <h3 class="section-heading" style="text-align: center">Saturday</h3>
